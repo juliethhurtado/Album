@@ -1,0 +1,86 @@
+/* Estilo para el contenedor del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para las etiquetas */
+  label {
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Estilo para los inputs y select */
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+  }
+  
+  /* Estilo específico para el textarea */
+  textarea {
+    height: 100px;
+  }
+  
+  /* Estilo para el botón */
+  button {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #e64a19;
+  }
+  
+  @media (max-width: 600px) {
+    form {
+      max-width: 100%;
+      padding: 15px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  /* Estilos para los mensajes de error */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el mensaje de confirmación */
+  .confirmation {
+    color: green;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo para los inputs y selects en estado inválido */
+  input.ng-invalid.ng-touched, select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border-color: red;
+  }
+  

@@ -1,0 +1,72 @@
+<form [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+    <!-- Campos del formulario -->
+    <label for="name">Nombre del Álbum:</label>
+    <input id="name" formControlName="name" required>
+    <div *ngIf="albumForm.get('name')?.invalid && albumForm.get('name')?.touched" class="error">
+      El nombre del álbum es obligatorio y debe tener al menos 3 caracteres.
+    </div>
+    
+    <label for="cover">Url imagen álbum:</label>
+    <input id="cover" formControlName="cover" required>
+    <div *ngIf="albumForm.get('cover')?.invalid && albumForm.get('cover')?.touched" class="error">
+      La URL de la imagen es obligatoria y debe ser válida.
+    </div>
+  
+    <label for="releaseDate">Fecha de Lanzamiento:</label>
+    <input id="releaseDate" type="date" formControlName="releaseDate" required>
+    <div *ngIf="albumForm.get('releaseDate')?.invalid && albumForm.get('releaseDate')?.touched" class="error">
+      La fecha de lanzamiento es obligatoria.
+    </div>
+  
+    <label for="genre">Género:</label>
+    <select id="genre" formControlName="genre" required>
+      <option value="">Seleccione un género</option>
+      <option value="Classical">Classical</option>
+      <option value="Salsa">Salsa</option>
+      <option value="Rock">Rock</option>
+      <option value="Folk">Folk</option>
+    </select>
+    <div *ngIf="albumForm.get('genre')?.invalid && albumForm.get('genre')?.touched" class="error">
+      El género es obligatorio.
+    </div>
+  
+    <label for="recordLabel">Disquera:</label>
+    <select id="recordLabel" formControlName="recordLabel" required>
+      <option value="">Seleccione una disquera</option>
+      <option value="Sony Music">Sony Music</option>
+      <option value="Discos Fuentes">Discos Fuentes</option>
+      <option value="Elektra">Elektra</option>
+      <option value="Fania Records">Fania Records</option>
+    </select>
+    <div *ngIf="albumForm.get('recordLabel')?.invalid && albumForm.get('recordLabel')?.touched" class="error">
+      La disquera es obligatoria.
+    </div>
+  
+    <label for="description">Descripción:</label>
+    <textarea id="description" formControlName="description" required></textarea>
+    <div *ngIf="albumForm.get('description')?.invalid && albumForm.get('description')?.touched" class="error">
+      La descripción es obligatoria y debe tener al menos 10 caracteres.
+    </div>
+  
+    <!-- Botón que estará deshabilitado si el formulario no es válido -->
+    <button type="submit" class="btn btn-primary" [disabled]="!albumForm.valid">Guardar</button>
+  </form>
+  
+  <!-- Modal de confirmación (usando Bootstrap) -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel">Confirmación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¡Álbum creado exitosamente!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
